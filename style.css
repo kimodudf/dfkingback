@@ -1,0 +1,284 @@
+:root {
+  --leaf-svg: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgNDAwIj4KPGcgb3BhY2l0eT0iMC45Ij4KPHBhdGggZD0iTTE1MCAyMCBDIDIyMCA2MCwgMjYwIDE0MCwgMjMwIDIyMCBDIDIxMCAyODAsIDE1MCAzNDAsIDE1MCAzODAgQyAxNTAgMzQwLCA5MCAyODAsIDcwIDIyMCBDIDQwIDE0MCwgODAgNjAsIDE1MCAyMCBaIiBmaWxsPSIjOGZhNThiIiBvcGFjaXR5PSIwLjU1Ii8+CjxwYXRoIGQ9Ik0xNTAgNjAgQyAyMDAgMTAwLCAyMjUgMTYwLCAyMDUgMjIwIEMgMTkwIDI2NSwgMTUwIDMxMCwgMTUwIDM1MCIgc3Ryb2tlPSIjNjQ3NzYxIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNiIvPgo8cGF0aCBkPSJNMTUwIDYwIEMgMTAwIDEwMCwgNzUgMTYwLCA5NSAyMjAgQyAxMTAgMjY1LCAxNTAgMzEwLCAxNTAgMzUwIiBzdHJva2U9IiM2NDc3NjEiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC42Ii8+CjxlbGxpcHNlIGN4PSIxMjAiIGN5PSIxMzAiIHJ4PSIzMCIgcnk9IjU1IiBmaWxsPSIjYzdkM2MyIiBvcGFjaXR5PSIwLjQiIHRyYW5zZm9ybT0icm90YXRlKC0yNSAxMjAgMTMwKSIvPgo8ZWxsaXBzZSBjeD0iMTg1IiBjeT0iMTgwIiByeD0iMjYiIHJ5PSI0OCIgZmlsbD0iI2M3ZDNjMiIgb3BhY2l0eT0iMC4zNSIgdHJhbnNmb3JtPSJyb3RhdGUoMjAgMTg1IDE4MCkiLz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iNjAiIHI9IjEwIiBmaWxsPSIjYjhhMDZhIiBvcGFjaXR5PSIwLjUiLz4KPC9nPgo8L3N2Zz4=');
+  --sprig-svg: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KPGcgb3BhY2l0eT0iMC45Ij4KPHBhdGggZD0iTTEwMCAxODAgQyA5NSAxNDAsIDkwIDEwMCwgMTAwIDIwIiBzdHJva2U9IiM2NDc3NjEiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgo8ZWxsaXBzZSBjeD0iNzUiIGN5PSI2MCIgcng9IjE2IiByeT0iMjgiIGZpbGw9IiM4ZmE1OGIiIG9wYWNpdHk9IjAuNiIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwIDc1IDYwKSIvPgo8ZWxsaXBzZSBjeD0iMTI4IiBjeT0iOTAiIHJ4PSIxNSIgcnk9IjI2IiBmaWxsPSIjOGZhNThiIiBvcGFjaXR5PSIwLjU1IiB0cmFuc2Zvcm09InJvdGF0ZSgyNSAxMjggOTApIi8+CjxlbGxpcHNlIGN4PSI3MCIgY3k9IjEyMCIgcng9IjE0IiByeT0iMjQiIGZpbGw9IiNjN2QzYzIiIG9wYWNpdHk9IjAuNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTIwIDcwIDEyMCkiLz4KPGVsbGlwc2UgY3g9IjEzMCIgY3k9IjE0NSIgcng9IjEzIiByeT0iMjIiIGZpbGw9IiNjN2QzYzIiIG9wYWNpdHk9IjAuNDUiIHRyYW5zZm9ybT0icm90YXRlKDIwIDEzMCAxNDUpIi8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjIwIiByPSI3IiBmaWxsPSIjYjhhMDZhIiBvcGFjaXR5PSIwLjYiLz4KPC9nPgo8L3N2Zz4=');
+}
+/* =========================================================
+   SAGE WATERCOLOR — WEDDING INVITATION STYLESHEET
+   ========================================================= */
+
+:root {
+  --sage: #8fa58b;
+  --sage-dark: #647761;
+  --sage-light: #c7d3c2;
+  --cream: #f7f3e9;
+  --paper: #fffdf7;
+  --text: #4d554b;
+  --text-light: #7c8578;
+  --gold: #b8a06a;
+
+  --font-display: 'Great Vibes', cursive;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Jost', sans-serif;
+
+  --radius: 4px;
+  --transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-serif);
+  background: var(--paper);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border: 1px solid var(--sage-dark);
+  color: var(--sage-dark);
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition), transform 0.3s;
+}
+.btn:hover { background: var(--sage-dark); color: var(--paper); transform: translateY(-2px); }
+.btn--small { font-size: 0.7rem; padding: 0.6rem 1.4rem; margin-top: 0.5rem; }
+
+.section-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  margin-bottom: 0.5rem;
+}
+.section-eyebrow--light { color: var(--cream); }
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+.section-title--light { color: var(--paper); }
+
+/* ---------- Watercolor botanical ornaments (SVG data-uri) ---------- */
+.leaf-ornament {
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.leaf-ornament { /* generic class, specific ornaments use --leaf-svg / --sprig-svg */ }
+
+/* =========================================================
+   OPENING SCREEN
+   ========================================================= */
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--sage-light) 140%);
+  text-align: center;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+.opening.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.opening__ornament {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background-image: var(--leaf-svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.85;
+}
+.opening__ornament--top { top: -40px; left: -50px; transform: rotate(20deg); }
+.opening__ornament--bottom { bottom: -40px; right: -50px; transform: rotate(200deg); }
+
+.opening__content { padding: 2rem; animation: fadeInUp 1.4s ease both; }
+.opening__eyebrow {
+  font-family: var(--font-sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--sage-dark);
+  margin-bottom: 0.5rem;
+}
+.opening__names {
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.opening__names span { color: var(--gold); padding: 0 0.3rem; }
+.opening__guest { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-light); }
+.opening__guest-name { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; margin: 0.3rem 0 2rem; color: var(--sage-dark); }
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+.main-content { opacity: 0; }
+.main-content.is-visible { opacity: 1; transition: opacity 1s ease; }
+
+.music-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--sage-light);
+  z-index: 50;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+.music-toggle__disc {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sage) 30%, var(--sage-dark) 100%);
+  animation: spin 4s linear infinite;
+  animation-play-state: paused;
+}
+.music-toggle.is-playing .music-toggle__disc { animation-play-state: running; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Reveal-on-scroll */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.1s ease, transform 1.1s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--cream);
+  padding: 2rem;
+  overflow: hidden;
+}
+.hero__ornament { position: absolute; width: 220px; height: 320px; background-image: var(--leaf-svg); background-repeat: no-repeat; background-size: contain; opacity: 0.8; }
+.hero__ornament--left { top: -30px; left: -60px; transform: rotate(-10deg); }
+.hero__ornament--right { bottom: -30px; right: -60px; transform: rotate(170deg); }
+.hero__eyebrow { font-family: var(--font-sans); letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.8rem; color: var(--sage-dark); margin-bottom: 1rem; }
+.hero__names { font-family: var(--font-display); font-size: 4.2rem; color: var(--text); }
+.hero__names span { color: var(--gold); padding: 0 0.4rem; }
+.hero__date { font-family: var(--font-sans); letter-spacing: 0.2em; margin-top: 1rem; color: var(--text-light); }
+.hero__scroll { position: absolute; bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.hero__scroll span { width: 1px; height: 40px; background: var(--sage-dark); animation: scrollLine 1.8s ease-in-out infinite; }
+.hero__scroll small { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.2em; color: var(--text-light); }
+@keyframes scrollLine { 0%,100% { transform: scaleY(0.4); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 1; } }
+
+/* ---------- QUOTE ---------- */
+.quote { position: relative; padding: 6rem 2rem; text-align: center; max-width: 700px; margin: 0 auto; }
+.quote__leaf { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 60px; height: 60px; background-image: var(--sprig-svg); background-repeat: no-repeat; background-size: contain; }
+.quote__text { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--text); }
+.quote__source { margin-top: 1rem; font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--sage-dark); }
+
+/* ---------- COUPLE ---------- */
+.couple { text-align: center; padding: 5rem 1.5rem; }
+.couple__grid { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+.couple__card { max-width: 260px; }
+.couple__photo { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.2rem; border: 6px solid var(--cream); box-shadow: 0 8px 24px rgba(100,119,97,0.18); }
+.couple__photo img { width: 100%; height: 100%; object-fit: cover; }
+.couple__card h4 { font-family: var(--font-display); font-size: 2rem; color: var(--text); margin-bottom: 0.5rem; font-weight: 400; }
+.couple__parents { font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-light); }
+.couple__divider { font-family: var(--font-display); font-size: 2.6rem; color: var(--gold); }
+
+/* ---------- COUNTDOWN ---------- */
+.countdown { position: relative; text-align: center; padding: 5rem 1.5rem; background: var(--sage-dark); overflow: hidden; }
+.countdown__bg { position: absolute; inset: 0; background-image: var(--leaf-svg); background-repeat: no-repeat; background-size: cover; opacity: 0.08; }
+.countdown__grid { position: relative; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+.countdown__item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius); padding: 1.2rem 1.4rem; min-width: 90px; }
+.countdown__item span { display: block; font-family: var(--font-serif); font-size: 2.2rem; color: var(--paper); }
+.countdown__item small { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--sage-light); text-transform: uppercase; }
+
+/* ---------- EVENTS ---------- */
+.events { text-align: center; padding: 5rem 1.5rem; }
+.events__grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+.event-card { position: relative; background: var(--cream); border-radius: var(--radius); padding: 2.5rem 2rem; max-width: 320px; box-shadow: 0 10px 30px rgba(100,119,97,0.12); }
+.event-card__ornament { position: absolute; top: -18px; right: -18px; width: 70px; height: 70px; background-image: var(--sprig-svg); background-repeat: no-repeat; background-size: contain; opacity: 0.9; }
+.event-card h4 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 0.8rem; color: var(--sage-dark); font-weight: 400; }
+.event-card p { font-family: var(--font-sans); font-size: 0.85rem; margin-bottom: 0.2rem; color: var(--text); }
+.event-card__place { margin: 0.6rem 0; }
+
+/* ---------- RSVP ---------- */
+.rsvp { text-align: center; padding: 5rem 1.5rem; background: var(--cream); }
+.rsvp__form { max-width: 420px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+.rsvp__form input, .rsvp__form select, .rsvp__form textarea {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--sage-light);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--text);
+  resize: vertical;
+}
+.rsvp__list { list-style: none; max-width: 420px; margin: 2rem auto 0; text-align: left; display: flex; flex-direction: column; gap: 0.8rem; }
+.rsvp__list li { background: var(--paper); border-left: 3px solid var(--sage); padding: 0.8rem 1rem; border-radius: var(--radius); font-family: var(--font-sans); font-size: 0.85rem; }
+.rsvp__list li b { color: var(--sage-dark); }
+
+/* ---------- GIFT ---------- */
+.gift { text-align: center; padding: 5rem 1.5rem; }
+.gift__card { background: var(--cream); border-radius: var(--radius); padding: 2rem; max-width: 360px; margin: 0 auto 2rem; font-family: var(--font-sans); font-size: 0.9rem; }
+.gift__owner { color: var(--text-light); margin: 0.3rem 0 1rem; }
+
+/* ---------- FOOTER ---------- */
+.footer { position: relative; text-align: center; padding: 5rem 1.5rem 3rem; background: var(--sage-dark); color: var(--cream); overflow: hidden; }
+.footer__ornament { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 260px; height: 140px; background-image: var(--leaf-svg); background-repeat: no-repeat; background-size: contain; opacity: 0.15; }
+.footer__thanks { font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+.footer__names { font-family: var(--font-display); font-size: 2.4rem; margin-bottom: 1.5rem; }
+.footer__note { font-family: var(--font-sans); font-size: 0.7rem; opacity: 0.7; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+  .opening__names { font-size: 2.6rem; }
+  .hero__names { font-size: 3rem; }
+  .section-title { font-size: 2.1rem; }
+  .couple__grid { flex-direction: column; gap: 1.5rem; }
+  .couple__divider { width: 100%; }
+  .events__grid { gap: 1.5rem; }
+}
+
+@media (max-width: 430px) {
+  .opening__names { font-size: 2.2rem; }
+  .hero__names { font-size: 2.4rem; }
+  .section-title { font-size: 1.8rem; }
+  .couple__photo { width: 160px; height: 160px; }
+  .countdown__item { min-width: 70px; padding: 1rem; }
+  .countdown__item span { font-size: 1.6rem; }
+}
+
+@media (max-width: 360px) {
+  .opening__names { font-size: 1.9rem; }
+  .hero__names { font-size: 2rem; }
+}
