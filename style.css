@@ -1,3 +1,4 @@
+
 :root {
   --leaf-svg: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgNDAwIj4KPGcgb3BhY2l0eT0iMC45Ij4KPHBhdGggZD0iTTE1MCAyMCBDIDIyMCA2MCwgMjYwIDE0MCwgMjMwIDIyMCBDIDIxMCAyODAsIDE1MCAzNDAsIDE1MCAzODAgQyAxNTAgMzQwLCA5MCAyODAsIDcwIDIyMCBDIDQwIDE0MCwgODAgNjAsIDE1MCAyMCBaIiBmaWxsPSIjOGZhNThiIiBvcGFjaXR5PSIwLjU1Ii8+CjxwYXRoIGQ9Ik0xNTAgNjAgQyAyMDAgMTAwLCAyMjUgMTYwLCAyMDUgMjIwIEMgMTkwIDI2NSwgMTUwIDMxMCwgMTUwIDM1MCIgc3Ryb2tlPSIjNjQ3NzYxIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNiIvPgo8cGF0aCBkPSJNMTUwIDYwIEMgMTAwIDEwMCwgNzUgMTYwLCA5NSAyMjAgQyAxMTAgMjY1LCAxNTAgMzEwLCAxNTAgMzUwIiBzdHJva2U9IiM2NDc3NjEiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC42Ii8+CjxlbGxpcHNlIGN4PSIxMjAiIGN5PSIxMzAiIHJ4PSIzMCIgcnk9IjU1IiBmaWxsPSIjYzdkM2MyIiBvcGFjaXR5PSIwLjQiIHRyYW5zZm9ybT0icm90YXRlKC0yNSAxMjAgMTMwKSIvPgo8ZWxsaXBzZSBjeD0iMTg1IiBjeT0iMTgwIiByeD0iMjYiIHJ5PSI0OCIgZmlsbD0iI2M3ZDNjMiIgb3BhY2l0eT0iMC4zNSIgdHJhbnNmb3JtPSJyb3RhdGUoMjAgMTg1IDE4MCkiLz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iNjAiIHI9IjEwIiBmaWxsPSIjYjhhMDZhIiBvcGFjaXR5PSIwLjUiLz4KPC9nPgo8L3N2Zz4=');
   --sprig-svg: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KPGcgb3BhY2l0eT0iMC45Ij4KPHBhdGggZD0iTTEwMCAxODAgQyA5NSAxNDAsIDkwIDEwMCwgMTAwIDIwIiBzdHJva2U9IiM2NDc3NjEiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgo8ZWxsaXBzZSBjeD0iNzUiIGN5PSI2MCIgcng9IjE2IiByeT0iMjgiIGZpbGw9IiM4ZmE1OGIiIG9wYWNpdHk9IjAuNiIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwIDc1IDYwKSIvPgo8ZWxsaXBzZSBjeD0iMTI4IiBjeT0iOTAiIHJ4PSIxNSIgcnk9IjI2IiBmaWxsPSIjOGZhNThiIiBvcGFjaXR5PSIwLjU1IiB0cmFuc2Zvcm09InJvdGF0ZSgyNSAxMjggOTApIi8+CjxlbGxpcHNlIGN4PSI3MCIgY3k9IjEyMCIgcng9IjE0IiByeT0iMjQiIGZpbGw9IiNjN2QzYzIiIG9wYWNpdHk9IjAuNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTIwIDcwIDEyMCkiLz4KPGVsbGlwc2UgY3g9IjEzMCIgY3k9IjE0NSIgcng9IjEzIiByeT0iMjIiIGZpbGw9IiNjN2QzYzIiIG9wYWNpdHk9IjAuNDUiIHRyYW5zZm9ybT0icm90YXRlKDIwIDEzMCAxNDUpIi8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjIwIiByPSI3IiBmaWxsPSIjYjhhMDZhIiBvcGFjaXR5PSIwLjYiLz4KPC9nPgo8L3N2Zz4=');
@@ -239,7 +240,23 @@ img { max-width: 100%; display: block; }
   color: var(--text);
   resize: vertical;
 }
-.rsvp__list { list-style: none; max-width: 420px; margin: 2rem auto 0; text-align: left; display: flex; flex-direction: column; gap: 0.8rem; }
+.rsvp__list {
+  list-style: none;
+  max-width: 420px;
+  margin: 2rem auto 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 0.6rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sage) transparent;
+}
+.rsvp__list::-webkit-scrollbar { width: 6px; }
+.rsvp__list::-webkit-scrollbar-track { background: transparent; }
+.rsvp__list::-webkit-scrollbar-thumb { background: var(--sage); border-radius: var(--radius); }
 .rsvp__list li { background: var(--paper); border-left: 3px solid var(--sage); padding: 0.8rem 1rem; border-radius: var(--radius); font-family: var(--font-sans); font-size: 0.85rem; }
 .rsvp__list li b { color: var(--sage-dark); }
 
