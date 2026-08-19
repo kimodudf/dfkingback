@@ -58,25 +58,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- Countdown ---------- */
-  const eventDate = new Date('2026-06-20T08:00:00');
+  const eventDate = new Date('2026-09-06T00:00:00+07:00');
 
-  function updateCountdown() {
-    const now = new Date();
-    let diff = eventDate - now;
-    if (diff < 0) diff = 0;
+function updateCountdown() {
+  const now = new Date();
+  let diff = eventDate - now;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+  if (diff < 0) diff = 0;
 
-    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
-    document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('cd-days').textContent =
+    String(days).padStart(2, '0');
+
+  document.getElementById('cd-hours').textContent =
+    String(hours).padStart(2, '0');
+
+  document.getElementById('cd-minutes').textContent =
+    String(minutes).padStart(2, '0');
+
+  document.getElementById('cd-seconds').textContent =
+    String(seconds).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
   /* ---------- RSVP (terhubung ke Google Sheet via Apps Script) ---------- */
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxucWVFFkMwdLzmsn5wUWdQsh003zOGeaORZf3wlNWZa_pZCxIwZh3xw8P41fQZyVmuoA/exec';
