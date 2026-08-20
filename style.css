@@ -202,12 +202,19 @@ img { max-width: 100%; display: block; }
 /* ---------- COUPLE ---------- */
 .couple { text-align: center; padding: 5rem 1.5rem; }
 .couple__grid { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-.couple__card { max-width: 260px; }
+.couple__card { max-width: 260px; width: 100%; }
 .couple__photo { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.2rem; border: 6px solid var(--cream); box-shadow: 0 8px 24px rgba(100,119,97,0.18); }
 .couple__photo img { width: 100%; height: 100%; object-fit: cover; }
 .couple__card h4 { font-family: var(--font-display); font-size: 2rem; color: var(--text); margin-bottom: 0.5rem; font-weight: 400; }
 .couple__parents { font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-light); }
-.couple__divider { font-family: var(--font-display); font-size: 2.6rem; color: var(--gold); }
+.couple__divider { font-family: var(--font-display); font-size: 2.6rem; color: var(--gold); flex-shrink: 0; }
+
+/* Stack couple cards vertically once there's no room for both side by side */
+@media (max-width: 620px) {
+  .couple__grid { flex-direction: column; gap: 2rem; }
+  .couple__card { max-width: 280px; }
+  .couple__divider { order: 0; margin: -0.5rem 0; }
+}
 
 /* ---------- GALLERY ---------- */
 .gallery { text-align: center; padding: 5rem 1.5rem; background: var(--cream); }
