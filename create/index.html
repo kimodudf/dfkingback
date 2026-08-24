@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generator Link Undangan Pernikahan</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fdf6f0 0%, #f3e6e0 100%);
+    padding: 20px;
+  }
+  .card {
+    background: #fff;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+  .card h1 {
+    font-size: 20px;
+    color: #8a5a44;
+    margin-bottom: 6px;
+  }
+  .card p.sub {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+  label {
+    display: block;
+    text-align: left;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e0d3cc;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type="text"]:focus {
+    border-color: #c98a6e;
+  }
+  button {
+    margin-top: 16px;
+    width: 100%;
+    padding: 13px;
+    background: #c98a6e;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover {
+    background: #b3765d;
+  }
+  .result {
+    margin-top: 22px;
+    display: none;
+  }
+  .result.show {
+    display: block;
+  }
+  .result-box {
+    background: #faf3ef;
+    border: 1px dashed #d8b8a6;
+    border-radius: 10px;
+    padding: 14px;
+    word-break: break-all;
+    font-size: 14px;
+    color: #8a5a44;
+    text-align: left;
+  }
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .actions button {
+    margin-top: 0;
+    flex: 1;
+    font-size: 13px;
+    padding: 10px;
+  }
+  .btn-secondary {
+    background: #fff;
+    color: #c98a6e;
+    border: 1px solid #c98a6e !important;
+  }
+  .btn-secondary:hover {
+    background: #fdf3ee;
+  }
+  .copied-msg {
+    font-size: 12px;
+    color: #4caf50;
+    margin-top: 8px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>💌 Generator Link Undangan</h1>
+  <p class="sub">Masukkan nama tamu, link undangan otomatis dibuatkan</p>
+
+  <label for="namaTamu">Nama Tamu</label>
+  <input type="text" id="namaTamu" placeholder="Contoh: Rizky Pratama" autocomplete="off">
+
+  <button onclick="generateLink()">Buat Link</button>
+
+  <div class="result" id="resultBox">
+    <div class="result-box" id="resultLink"></div>
+    <div class="actions">
+      <button class="btn-secondary" onclick="copyLink()">📋 Salin Link</button>
+      <button class="btn-secondary" onclick="openLink()">🔗 Buka Link</button>
+    </div>
+    <p class="copied-msg" id="copiedMsg">Link berhasil disalin!</p>
+  </div>
+</div>
+
+<script>
+  // Ganti sesuai domain undangan kamu
+  const BASE_URL = "https://haribersama.site/?to=";
+
+  function generateLink() {
+    const input = document.getElementById('namaTamu').value.trim();
+    const resultBox = document.getElementById('resultBox');
+    const resultLink = document.getElementById('resultLink');
+    const copiedMsg = document.getElementById('copiedMsg');
+
+    if (!input) {
+      alert('Silakan isi nama tamu terlebih dahulu.');
+      return;
+    }
+
+    // Ganti spasi (satu atau lebih) menjadi tanda +
+    const formatted = input.replace(/\s+/g, '+');
+    const finalLink = BASE_URL + formatted;
+
+    resultLink.textContent = finalLink;
+    resultBox.classList.add('show');
+    copiedMsg.style.display = 'none';
+  }
+
+  function copyLink() {
+    const text = document.getElementById('resultLink').textContent;
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const msg = document.getElementById('copiedMsg');
+      msg.style.display = 'block';
+      setTimeout(() => msg.style.display = 'none', 2000);
+    });
+  }
+
+  function openLink() {
+    const text = document.getElementById('resultLink').textContent;
+    if (!text) return;
+    window.open(text, '_blank');
+  }
+
+  // Bisa tekan Enter untuk generate
+  document.getElementById('namaTamu').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') generateLink();
+  });
+</script>
+
+</body>
+</html>
