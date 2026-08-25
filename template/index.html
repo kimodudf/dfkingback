@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generator Link & Pesan Undangan Pernikahan</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fdf6f0 0%, #f3e6e0 100%);
+    padding: 30px 20px;
+  }
+  .card {
+    background: #fff;
+    max-width: 560px;
+    width: 100%;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  .card h1 {
+    font-size: 20px;
+    color: #8a5a44;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .card p.sub {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  label {
+    display: block;
+    text-align: left;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e0d3cc;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type="text"]:focus {
+    border-color: #c98a6e;
+  }
+  button {
+    margin-top: 16px;
+    width: 100%;
+    padding: 13px;
+    background: #c98a6e;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover {
+    background: #b3765d;
+  }
+  .result {
+    margin-top: 22px;
+    display: none;
+  }
+  .result.show {
+    display: block;
+  }
+  .result-box {
+    background: #faf3ef;
+    border: 1px dashed #d8b8a6;
+    border-radius: 10px;
+    padding: 14px;
+    word-break: break-all;
+    font-size: 14px;
+    color: #8a5a44;
+    text-align: left;
+  }
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .actions button {
+    margin-top: 0;
+    flex: 1;
+    font-size: 13px;
+    padding: 10px;
+  }
+  .btn-secondary {
+    background: #fff;
+    color: #c98a6e;
+    border: 1px solid #c98a6e !important;
+  }
+  .btn-secondary:hover {
+    background: #fdf3ee;
+  }
+  .copied-msg {
+    font-size: 12px;
+    color: #4caf50;
+    margin-top: 8px;
+    display: none;
+  }
+
+  /* Templates section */
+  .templates {
+    margin-top: 30px;
+    display: none;
+  }
+  .templates.show {
+    display: block;
+  }
+  .templates-title {
+    font-size: 15px;
+    color: #8a5a44;
+    font-weight: 600;
+    margin-bottom: 12px;
+    border-top: 1px solid #f0e2da;
+    padding-top: 20px;
+  }
+  .tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .tab-btn {
+    flex: 1;
+    margin-top: 0;
+    padding: 9px 6px;
+    font-size: 12.5px;
+    font-weight: 500;
+    background: #fdf3ee;
+    color: #8a5a44;
+    border: 1px solid #eeded4;
+  }
+  .tab-btn.active {
+    background: #c98a6e;
+    color: #fff;
+  }
+  .tab-btn:hover {
+    background: #f3ded3;
+  }
+  .tab-btn.active:hover {
+    background: #b3765d;
+  }
+  .template-panel {
+    display: none;
+  }
+  .template-panel.active {
+    display: block;
+  }
+  .template-text {
+    background: #faf3ef;
+    border: 1px dashed #d8b8a6;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #4a3a33;
+    white-space: pre-wrap;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+  .template-copy-msg {
+    font-size: 12px;
+    color: #4caf50;
+    margin-top: 8px;
+    display: none;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>💌 Generator Link & Pesan Undangan</h1>
+  <p class="sub">Masukkan nama tamu, link dan pesan undangan otomatis dibuatkan</p>
+
+  <label for="namaTamu">Nama Tamu</label>
+  <input type="text" id="namaTamu" placeholder="Contoh: Rizky Pratama" autocomplete="off">
+
+  <button onclick="generateLink()">Buat Link & Pesan</button>
+
+  <div class="result" id="resultBox">
+    <div class="result-box" id="resultLink"></div>
+    <div class="actions">
+      <button class="btn-secondary" onclick="copyLink()">📋 Salin Link</button>
+      <button class="btn-secondary" onclick="openLink()">🔗 Buka Link</button>
+    </div>
+    <p class="copied-msg" id="copiedMsg">Link berhasil disalin!</p>
+  </div>
+
+  <div class="templates" id="templatesBox">
+    <div class="templates-title">Pilih Template Pesan</div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(1)">Versi 1</button>
+      <button class="tab-btn" onclick="switchTab(2)">Versi 2</button>
+      <button class="tab-btn" onclick="switchTab(3)">Versi 3</button>
+    </div>
+
+    <div class="template-panel active" id="panel1">
+      <div class="template-text" id="text1"></div>
+      <div class="actions">
+        <button class="btn-secondary" onclick="copyTemplate(1)">📋 Salin Pesan Versi 1</button>
+      </div>
+    </div>
+    <div class="template-panel" id="panel2">
+      <div class="template-text" id="text2"></div>
+      <div class="actions">
+        <button class="btn-secondary" onclick="copyTemplate(2)">📋 Salin Pesan Versi 2</button>
+      </div>
+    </div>
+    <div class="template-panel" id="panel3">
+      <div class="template-text" id="text3"></div>
+      <div class="actions">
+        <button class="btn-secondary" onclick="copyTemplate(3)">📋 Salin Pesan Versi 3</button>
+      </div>
+    </div>
+
+    <p class="template-copy-msg" id="templateCopiedMsg">Pesan berhasil disalin!</p>
+  </div>
+</div>
+
+<script>
+  // Ganti sesuai domain undangan kamu
+  const BASE_URL = "https://haribersama.site/?to=";
+
+  const templates = {
+    1: (nama, link) =>
+`Kepada Yth.
+Bapak/Ibu/Saudara/i
+${nama}
+
+Assalamualaikum Warahmatullahi Wabarakatuh
+
+Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.
+
+Berikut link undangan kami:
+${link}
+
+Untuk informasi lengkap mengenai acara, silakan kunjungi link tersebut.
+
+Merupakan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa dan restu.
+
+Wassalamualaikum Warahmatullahi Wabarakatuh
+Terima kasih atas perhatian dan doanya.
+
+Hormat kami,
+Adeina & Fahmi`,
+
+    2: (nama, link) =>
+`Kepada Yth.
+Bapak/Ibu/Saudara/i
+${nama}
+
+Assalamualaikum Warahmatullahi Wabarakatuh
+
+Dengan penuh hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.
+
+Link undangan:
+${link}
+
+Informasi lengkap mengenai acara dapat dilihat melalui link di atas.
+
+Suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+
+Wassalamualaikum Warahmatullahi Wabarakatuh
+Terima kasih.
+
+Hormat kami,
+Adeina & Fahmi`,
+
+    3: (nama, link) =>
+`Kepada Yth.
+Bapak/Ibu/Saudara/i
+${nama}
+
+Assalamualaikum Warahmatullahi Wabarakatuh
+
+Dengan penuh hormat, kami mengundang Bapak/Ibu/Saudara/i untuk turut hadir dan memberikan doa restu pada acara pernikahan kami.
+
+Berikut link undangan kami:
+${link}
+
+Detail acara dan informasi lainnya dapat dilihat melalui link tersebut.
+
+Kehadiran dan doa restu Bapak/Ibu/Saudara/i merupakan kebahagiaan bagi kami.
+
+Wassalamualaikum Warahmatullahi Wabarakatuh
+Terima kasih.
+
+Adeina & Fahmi`
+  };
+
+  let currentLink = "";
+  let currentNama = "";
+
+  function generateLink() {
+    const input = document.getElementById('namaTamu').value.trim();
+    const resultBox = document.getElementById('resultBox');
+    const resultLink = document.getElementById('resultLink');
+    const copiedMsg = document.getElementById('copiedMsg');
+    const templatesBox = document.getElementById('templatesBox');
+
+    if (!input) {
+      alert('Silakan isi nama tamu terlebih dahulu.');
+      return;
+    }
+
+    currentNama = input;
+    const formatted = input.replace(/\s+/g, '+');
+    currentLink = BASE_URL + formatted;
+
+    resultLink.textContent = currentLink;
+    resultBox.classList.add('show');
+    copiedMsg.style.display = 'none';
+
+    // Isi ketiga template
+    document.getElementById('text1').textContent = templates[1](currentNama, currentLink);
+    document.getElementById('text2').textContent = templates[2](currentNama, currentLink);
+    document.getElementById('text3').textContent = templates[3](currentNama, currentLink);
+
+    templatesBox.classList.add('show');
+  }
+
+  function copyLink() {
+    if (!currentLink) return;
+    navigator.clipboard.writeText(currentLink).then(() => {
+      const msg = document.getElementById('copiedMsg');
+      msg.style.display = 'block';
+      setTimeout(() => msg.style.display = 'none', 2000);
+    });
+  }
+
+  function openLink() {
+    if (!currentLink) return;
+    window.open(currentLink, '_blank');
+  }
+
+  function switchTab(num) {
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === num - 1);
+    });
+    document.querySelectorAll('.template-panel').forEach(panel => {
+      panel.classList.remove('active');
+    });
+    document.getElementById('panel' + num).classList.add('active');
+  }
+
+  function copyTemplate(num) {
+    const text = document.getElementById('text' + num).textContent;
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const msg = document.getElementById('templateCopiedMsg');
+      msg.style.display = 'block';
+      setTimeout(() => msg.style.display = 'none', 2000);
+    });
+  }
+
+  // Bisa tekan Enter untuk generate
+  document.getElementById('namaTamu').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') generateLink();
+  });
+</script>
+
+</body>
+</html>
